@@ -1,3 +1,9 @@
 .form-error ul li{
     color: red;
 }
+.ec-register-form input{
+    margin-bottom: 0px !important;
+}
+span.ec-register-wrap{
+    margin-bottom: 40px;
+}

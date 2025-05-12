@@ -44,14 +44,23 @@
                             <span class="ec-register-wrap ec-register-half">
                                 {{ form_label(registerForm.first_name) }}
                                 {{ form_widget(registerForm.first_name) }}
+                                 <div class="form-error">
+                                    {{ form_errors(registerForm.first_name) }}
+                                </div>
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 {{ form_label(registerForm.last_name) }}
                                 {{ form_widget(registerForm.last_name) }}
-                                </span>
+                                 <div class="form-error">
+                                    {{ form_errors(registerForm.last_name) }}
+                                </div>
+                            </span>
                             <span class="ec-register-wrap ec-register-half">
                                 {{ form_label(registerForm.email) }}
                                 {{ form_widget(registerForm.email) }}
+                                 <div class="form-error">
+                                    {{ form_errors(registerForm.email) }}
+                                </div>
                             </span>
                             <span class="ec-register-wrap ec-register-half">
                                 {{ form_label(registerForm.plainPassword.first) }}

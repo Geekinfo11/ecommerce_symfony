@@ -39,29 +39,34 @@
                 <div class="ec-register-wrapper">
                     <div class="ec-register-container">
                         <div class="ec-register-form">
-                            <form action="#" method="post">
-                                {{ form_start(registerForm) }}
+                            {{ form_start(registerForm) }}
 
-                                <span class="ec-register-wrap ec-register-half">
-                                    {{ form_label(registerForm.first_name) }}
-                                    {{ form_widget(registerForm.first_name) }}
+                            <span class="ec-register-wrap ec-register-half">
+                                {{ form_label(registerForm.first_name) }}
+                                {{ form_widget(registerForm.first_name) }}
+                            </span>
+                            <span class="ec-register-wrap ec-register-half">
+                                {{ form_label(registerForm.last_name) }}
+                                {{ form_widget(registerForm.last_name) }}
                                 </span>
-                                <span class="ec-register-wrap ec-register-half">
-                                    {{ form_label(registerForm.last_name) }}
-                                    {{ form_widget(registerForm.last_name) }}
-                                   </span>
-                                <span class="ec-register-wrap ec-register-half">
-                                    {{ form_label(registerForm.email) }}
-                                    {{ form_widget(registerForm.email) }}
-                                   </span>
-                                <span class="ec-register-wrap ec-register-half">
-                                   {{ form_label(registerForm.password) }}
-                                    {{ form_widget(registerForm.password) }}
-                                   </span>
-                                <span class="ec-register-wrap ec-register-btn">
-                                    {{ form_widget(registerForm.submit) }}
-                                </span>
-                            </form>
+                            <span class="ec-register-wrap ec-register-half">
+                                {{ form_label(registerForm.email) }}
+                                {{ form_widget(registerForm.email) }}
+                            </span>
+                            <span class="ec-register-wrap ec-register-half">
+                                {{ form_label(registerForm.plainPassword.first) }}
+                                {{ form_widget(registerForm.plainPassword.first) }}
+                                <div class="form-error">
+                                    {{ form_errors(registerForm.plainPassword.first) }}
+                                </div>
+                            </span>
+                            <span class="ec-register-wrap ec-register-half">
+                                {{ form_row(registerForm.plainPassword.second) }}
+                            </span>
+                            <span class="ec-register-wrap ec-register-btn">
+                                {{ form_widget(registerForm.submit) }}
+                            </span>
+                            {{ form_end(registerForm) }}
                         </div>
                     </div>
                 </div>

@@ -1,87 +1,95 @@
-{% extends 'base.html.twig' %} 
+{% extends 'base.html.twig' %}
 
 {% block body %}
-    <!-- Ec breadcrumb start -->
-    <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row ec_breadcrumb_inner">
-                        <div class="col-md-6 col-sm-12">
-                            <h2 class="ec-breadcrumb-title">Register</h2>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <!-- ec-breadcrumb-list start -->
-                            <ul class="ec-breadcrumb-list">
-                                <li class="ec-breadcrumb-item"><a href="{{path('app_home')}}">Home</a></li>
-                                <li class="ec-breadcrumb-item active">Register</li>
-                            </ul>
-                            <!-- ec-breadcrumb-list end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Ec breadcrumb end -->
+	<!-- Ec breadcrumb start -->
+	<div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="row ec_breadcrumb_inner">
+						<div class="col-md-6 col-sm-12">
+							<h2 class="ec-breadcrumb-title">Register</h2>
+						</div>
+						<div
+							class="col-md-6 col-sm-12">
+							<!-- ec-breadcrumb-list start -->
+							<ul class="ec-breadcrumb-list">
+								<li class="ec-breadcrumb-item">
+									<a href="{{path('app_home')}}">Home</a>
+								</li>
+								<li class="ec-breadcrumb-item active">Register</li>
+							</ul>
+							<!-- ec-breadcrumb-list end -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Ec breadcrumb end -->
 
-    <!-- Start Register -->
-    <section class="ec-page-content section-space-p">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="section-title">
-                        <h2 class="ec-bg-title">Register</h2>
-                        <h2 class="ec-title">Register</h2>
-                        <p class="sub-title mb-3">We're excited to have you! 🚀 Just a few details and you'll be all set. 😊</p>
-                    </div>
-                </div>
-                <div class="ec-register-wrapper">
-                    <div class="ec-register-container">
-                        <div class="ec-register-form">
-                            {{ form_start(registerForm) }}
+	<!-- Start Register -->
+	<section class="ec-page-content section-space-p">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div class="section-title">
+						<h2 class="ec-bg-title">Register</h2>
+						<h2 class="ec-title">Register</h2>
+						<p class="sub-title mb-3">We're excited to have you! 🚀 Just a few details and you'll be all set. 😊</p>
+					</div>
+				</div>
+				<div class="ec-register-wrapper">
+					<div class="ec-register-container">
+						<div
+							class="ec-register-form">
+							{# by default, when you render a form using form_start($form) without specifying the action, Symfony sets the action attribute
+							to the current URL (i.e., the URL that rendered the form). This means: if the form was rendered from app_register route then
+							then submitting it will also go to app_register route#}
+							{{ form_start(registerForm) }}
 
-                            <span class="ec-register-wrap ec-register-half">
-                                {{ form_label(registerForm.first_name) }}
-                                {{ form_widget(registerForm.first_name) }}
-                                 <div class="form-error">
-                                    {{ form_errors(registerForm.first_name) }}
-                                </div>
-                            </span>
-                            <span class="ec-register-wrap ec-register-half">
-                                {{ form_label(registerForm.last_name) }}
-                                {{ form_widget(registerForm.last_name) }}
-                                 <div class="form-error">
-                                    {{ form_errors(registerForm.last_name) }}
-                                </div>
-                            </span>
-                            <span class="ec-register-wrap ec-register-half">
-                                {{ form_label(registerForm.email) }}
-                                {{ form_widget(registerForm.email) }}
-                                 <div class="form-error">
-                                    {{ form_errors(registerForm.email) }}
-                                </div>
-                            </span>
-                            <span class="ec-register-wrap ec-register-half">
-                                {{ form_label(registerForm.plainPassword.first) }}
-                                {{ form_widget(registerForm.plainPassword.first) }}
-                                <div class="form-error">
-                                    {{ form_errors(registerForm.plainPassword.first) }}
-                                </div>
-                            </span>
-                            <span class="ec-register-wrap ec-register-half">
-                                {{ form_row(registerForm.plainPassword.second) }}
-                            </span>
-                            <span class="ec-register-wrap ec-register-btn">
-                                {{ form_widget(registerForm.submit) }}
-                            </span>
-                            {{ form_end(registerForm) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Register -->
+							<span class="ec-register-wrap ec-register-half">
+								{{ form_label(registerForm.first_name) }}
+								{{ form_widget(registerForm.first_name) }}
+								<div class="form-error">
+									{{ form_errors(registerForm.first_name) }}
+								</div>
+							</span>
+							<span class="ec-register-wrap ec-register-half">
+								{{ form_label(registerForm.last_name) }}
+								{{ form_widget(registerForm.last_name) }}
+								<div class="form-error">
+									{{ form_errors(registerForm.last_name) }}
+								</div>
+							</span>
+							<span class="ec-register-wrap ec-register-half">
+								{{ form_label(registerForm.email) }}
+								{{ form_widget(registerForm.email) }}
+								<div class="form-error">
+									{{ form_errors(registerForm.email) }}
+								</div>
+							</span>
+							<span class="ec-register-wrap ec-register-half">
+								{{ form_label(registerForm.plainPassword.first) }}
+								{{ form_widget(registerForm.plainPassword.first) }}
+								<div class="form-error">
+									{{ form_errors(registerForm.plainPassword.first) }}
+								</div>
+							</span>
+							<span class="ec-register-wrap ec-register-half">
+								{{ form_row(registerForm.plainPassword.second) }}
+							</span>
+							<span class="ec-register-wrap ec-register-btn">
+								{{ form_widget(registerForm.submit) }}
+							</span>
+							{{ form_end(registerForm) }}
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Register -->
 
 {% endblock %}

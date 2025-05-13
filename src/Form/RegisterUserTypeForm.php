@@ -56,8 +56,7 @@ class RegisterUserTypeForm extends AbstractType
                 'first_options'  => [
                     'label' => 'Password',
                     'attr' => ['placeholder' => 'Enter your password'],
-                    'hash_property_path' => 'password', // the password will be automatically hashed and stored in the 'password' property of the object
-
+                    'hash_property_path' => 'password', // the password will be automatically hashed and stored in the 'password' property of the User object
                 ],
                 'second_options' => [
                     'label' => 'Repeat Password',

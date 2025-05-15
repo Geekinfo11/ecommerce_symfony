@@ -5,7 +5,6 @@
 
 {% block body %}
 
-
 	<div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
 		<div class="container">
 			<div class="row">
@@ -25,6 +24,7 @@
 								<li class="ec-breadcrumb-item active">Login</li>
 							</ul>
 							<!-- ec-breadcrumb-list end -->
+
 						</div>
 					</div>
 				</div>
@@ -71,6 +71,10 @@
 									<button class="btn btn-primary" type="submit">Login</button>
 									<a href="{{path('app_register')}}" class="btn btn-secondary">Register</a>
 								</span>
+
+								{# tell Symfony to redirect to the 'app_account' route after successful login #}
+								<input type="hidden" name="_target_path" value="{{ path('app_account') }}">
+
 							</form>
 						</div>
 					</div>

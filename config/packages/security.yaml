@@ -21,6 +21,10 @@ security:
                 login_path: app_login
                 # POST: the route that processes the login form submission
                 check_path: app_login
+            logout:
+                path: /logout
+                # where to redirect after logout
+                target: app_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -31,6 +35,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        # restrict access to any URL starting with /account to only authenticated users. when a user is authenticated symfony automatically grants them
+        # a role named ROLE_USER.
+        - { path : ^/account, roles: ROLE_USER }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 

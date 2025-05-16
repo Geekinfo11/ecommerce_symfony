@@ -54,30 +54,42 @@
 							<span class="ec-register-wrap ec-register-half">
 								{{ form_label(registerForm.first_name) }}
 								{{ form_widget(registerForm.first_name) }}
-								<div class="form-error">
-									{{ form_errors(registerForm.first_name) }}
-								</div>
+								{% if form_errors(registerForm.first_name) %}
+									<div class="form-error">
+										{{ form_errors(registerForm.first_name) }}
+									</div>
+								{% endif %}
 							</span>
 							<span class="ec-register-wrap ec-register-half">
 								{{ form_label(registerForm.last_name) }}
 								{{ form_widget(registerForm.last_name) }}
-								<div class="form-error">
-									{{ form_errors(registerForm.last_name) }}
-								</div>
+
+								{% if form_errors(registerForm.last_name) %}
+									<div class="form-error">
+										{{ form_errors(registerForm.last_name) }}
+									</div>
+								{% endif %}
 							</span>
 							<span class="ec-register-wrap ec-register-half">
 								{{ form_label(registerForm.email) }}
 								{{ form_widget(registerForm.email) }}
-								<div class="form-error">
-									{{ form_errors(registerForm.email) }}
-								</div>
+
+								{% if form_errors(registerForm.email) %}
+									<div class="form-error">
+										{{ form_errors(registerForm.email) }}
+									</div>
+								{% endif %}
 							</span>
 							<span class="ec-register-wrap ec-register-half">
 								{{ form_label(registerForm.plainPassword.first) }}
 								{{ form_widget(registerForm.plainPassword.first) }}
-								<div class="form-error">
-									{{ form_errors(registerForm.plainPassword.first) }}
-								</div>
+								
+								{% if form_errors(registerForm.plainPassword.first) %}
+									<div class="form-error">
+										{{ form_errors(registerForm.plainPassword.first) }}
+									</div>
+								{% endif %}
+								
 							</span>
 							<span class="ec-register-wrap ec-register-half">
 								{{ form_row(registerForm.plainPassword.second) }}

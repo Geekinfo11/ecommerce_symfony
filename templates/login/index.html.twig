@@ -45,11 +45,11 @@
 					</div>
 				</div>
 				<div class="ec-login-wrapper">
-					<div class="text-danger mb-2">
 						{% if error %}
-							<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+							<div class="form-error text-danger mb-2">
+								<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+							</div>
 						{% endif %}
-					</div>
 
 					<div class="ec-login-container">
 						<div class="ec-login-form">

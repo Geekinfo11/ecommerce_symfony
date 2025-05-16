@@ -28,6 +28,11 @@ final class RegisterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManagerInterface->persist($user);
             $entityManagerInterface->flush();
+
+            // flash a message to the user
+            $this->addFlash('success', 'Your account is created successfully!');
+
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('register/index.html.twig', [

@@ -8,7 +8,7 @@
 
 		<title>
 			{% block title %}
-				Ecommerce
+				Shop
 			{% endblock %}
 		</title>
 		<meta name="keywords" content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops"/>
@@ -47,6 +47,10 @@
 
 		{# custom css #}
 		<link rel="stylesheet" href="{{asset('styles/app.css')}}"/>
+
+		<!-- Toastr css -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
 	</head>
 
 	<body>
@@ -1630,8 +1634,18 @@
 			</div>
 		</div>
 
+		{# read and display all flash messages #}
+		{# {% for label, messages in app.flashes %}
+			<div class="container my-4 text-center">
+				{% for message in messages %}
+					<div class="flash-{{ label }}">
+						{{ message }}
+					</div>
+				{% endfor %}
+			 </div>
+		{% endfor %} #}
+	
 		{% block body%}
-			Hello body section
 		{% endblock %}
 
 		<!-- Footer Start -->
@@ -2137,9 +2151,48 @@
 		<script src="{{asset('js/vendor/jquery.magnific-popup.min.js')}}"></script>
 		<script src="{{asset('js/plugins/jquery.sticky-sidebar.js')}}"></script>
 
+		<!-- Toast JS-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				toastr.options = {
+					"closeButton": true,
+					"debug": false,
+					"newestOnTop": false,
+					"progressBar": true,
+					"positionClass": "toast-top-right",
+					"preventDuplicates": true,
+					"onclick": null,
+					"showDuration": "300",
+					"timeOut": "3000",
+					"showEasing": "swing",
+					"hideEasing": "linear",
+					"showMethod": "fadeIn",
+					"hideMethod": "fadeOut"
+				}
+			})
+		</script>
+
+		<script>
+			// convert Symfony flash messages to a JS object
+			const flashMessages = {{ app.flashes|json_encode|raw }};
+
+			// use toastr to display flash messages
+			$(document).ready(function () {
+				for (const [type, messages] of Object.entries(flashMessages)) {
+					messages.forEach(message => {
+						console.log(type);
+						toastr[type](message, type); // e.g. toastr.success("..."), toastr.error("...")
+					});
+				}
+			});
+		</script>
+
 		<!-- Main Js -->
 		<script src="{{asset('js/vendor/index.js')}}"></script>
 		<script src="{{asset('js/main.js')}}"></script>
+		
 	</body>
 
 </html>

@@ -30,13 +30,18 @@ final class AccountController extends AbstractController
         ]);
 
         // this processes the request and populates the form fields with submitted data.
-        // It also updates the $user object (bound to the form) with the new values.
+        // it also updates the $user object (bound to the form) with the new values.
         $form->handleRequest($request);
 
+        // after form is submitted and valid. symfony detects hash_property_path, hashes the plainPassword in PasswordUserTypeForm, and sets it on User::$password
+        // even though plainPassword is not mapped.
         if ($form->isSubmitted() && $form->isValid()) {
-            // Doctrine automatically tracks changes to any managed entities. Since $user is already known to Doctrine (fetched earlier when the user was authenticated), Doctrine is watching it.
-            // flush tells Doctrine: save all tracked changes
+            // Doctrine automatically tracks changes to any managed entities. since $user is already known to Doctrine (fetched earlier when the user was authenticated), Doctrine is watching it.
+            // flush tells Doctrine: save all tracked changes to database.
             $entityManager->flush();
+
+            // flash a message to the user
+            $this->addFlash('success', 'Your password is updated successfully!');
         }
 
         return $this->render('account/edit_password.html.twig', [
